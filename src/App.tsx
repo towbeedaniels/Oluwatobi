@@ -190,7 +190,7 @@ export default function App() {
       title: 'IT Manager & Data Protection Officer',
       company: 'Brent Mortgage Bank Limited',
       location: 'Lagos, Nigeria',
-      period: 'October 2021 – Present',
+      period: 'October 2021 – August 2025',
       achievements: [
         'Spearheaded the implementation of a new mobile banking app with Interswitch, NIBBS, and NIP, achieving a 15% increase in customer transactions and 10% improvement in satisfaction ratings',
         'Optimized IT infrastructure through server virtualization and network enhancements, resulting in 20% increase in system performance and 5% reduction in downtime',
