@@ -207,11 +207,16 @@ export default function App() {
       location: 'Lagos, Nigeria',
       period: 'October 2021 – August 2025',
       achievements: [
-        'Spearheaded the implementation of a new mobile banking app with Interswitch, NIBBS, and NIP, achieving a 15% increase in customer transactions and 10% improvement in satisfaction ratings',
-        'Optimized IT infrastructure through server virtualization and network enhancements, resulting in 20% increase in system performance and 5% reduction in downtime',
-        'Enhanced network security by configuring and maintaining servers, routers, and switches, minimizing security breaches',
-        'Developed and enforced IT policies in compliance with banking regulations, ensuring data protection and risk mitigation',
-        'Managed IT vendor performance to ensure cost-effectiveness and high-quality service delivery'
+        'Spearheaded the implementation of a new mobile banking app with Interswitch, NIBBS, and NIP, achieving a 15% increase in customer transactions and 10% improvement in satisfaction ratings within the first year',
+        'Optimized IT infrastructure through server virtualization and network enhancements, resulting in 20% increase in system performance and 5% reduction in downtime over the course of two years',
+        'Enhanced network security by configuring and maintaining servers, routers, and switches, minimizing security breaches and ensuring data confidentiality and integrity',
+        'Developed and enforced IT policies in compliance with banking regulations, ensuring data protection and risk mitigation over the course of two years',
+        'Managed IT vendor performance to ensure cost-effectiveness and high-quality service delivery over the course of two years',
+        'Provided technical support and training to staff, improving IT literacy and reducing support tickets by 15% over two years',
+        'Collaborated with cross-functional teams to align IT initiatives with business goals, driving digital transformation and operational efficiency across the organization over the course of two years',
+        'Implemented a new data protection policy, resulting in a 20% reduction in data breaches and 10% increase in data security over the course of two years',
+        'Implemented a new ITIL framework, resulting in a 15% reduction in incidents and 5% increase in customer satisfaction over the course of two years',
+        'Led the successful migration of critical applications to a new cloud platform, improving scalability and reducing infrastructure costs by 25% over the course of two years'
       ]
     },
     {
@@ -220,9 +225,14 @@ export default function App() {
       location: 'Lagos, Nigeria',
       period: 'September 2020 – October 2021',
       achievements: [
-        'Collected and analyzed data from diverse sources, identifying key trends to support business decision-making',
-        'Created compelling data visualizations using Power BI and Excel to communicate insights to stakeholders',
-        'Utilized SQL queries to extract and manipulate data, ensuring accuracy and integrity'
+        'Collected and analyzed data from diverse sources, identifying key trends to support business decision-making and strategy development',
+        'Created compelling data visualizations using Power BI and Excel to communicate insights to stakeholders and drive strategic decision-making',
+        'Utilized SQL queries to extract and manipulate data, ensuring accuracy and integrity of the dataset',
+        'Collaborated with cross-functional teams to develop and implement data-driven solutions, ensuring alignment with organizational objectives and business requirements',
+        'Provided support to other analysts and stakeholders, ensuring data quality and accuracy, and ensuring compliance with data protection regulations',
+        'Participated in code reviews and provided constructive feedback to fellow developers, fostering a collaborative and efficient development process',
+        'Maintained and updated existing data models and dashboards, implementing new features and fixing bugs to ensure optimal performance and user satisfaction',
+        'Conducted training sessions for staff on data analysis tools and techniques, improving data literacy and empowering teams to leverage data for decision-making'
       ]
     },
     {
@@ -231,10 +241,13 @@ export default function App() {
       location: 'Lagos, Nigeria',
       period: 'July 2018 – November 2019',
       achievements: [
-        'Developed user-friendly web applications using HTML, CSS, and JavaScript',
-        'Implemented responsive design principles for optimal functionality across devices',
-        'Translated UI designs from Adobe XD into functional web interfaces',
-        'Optimized website performance using GT Metrix, improving page load speed'
+        'Developed user-friendly web applications using HTML, CSS, and JavaScript to enhance user experience and functionality',
+        'Implemented responsive design principles for optimal functionality across devices and screen sizes',
+        'Translated UI designs from Adobe XD into functional web interfaces using HTML, CSS, and JavaScript, ensuring pixel-perfect implementation and seamless user experience',
+        'Optimized website performance using GT Metrix, improving page load speed and user engagement',
+        'Collaborated with backend developers to integrate APIs and ensure seamless data flow between frontend and backend systems, enhancing overall application functionality and user experience',
+        'Maintained and updated existing web applications, implementing new features and fixing bugs to ensure optimal performance and user satisfaction',
+        'Participated in code reviews and provided constructive feedback to fellow developers, fostering a collaborative and efficient development process'
       ]
     }
   ];
