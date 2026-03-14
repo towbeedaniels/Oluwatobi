@@ -456,10 +456,10 @@ export default function App() {
               Oluwatobi Daniel-Sodiya
             </h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-100 mb-6 drop-shadow-md animate-slide-up">
-              IT Manager & Data Protection Officer
+              Digital Transformation Leader | IT Manager & Technology Strategist
             </h2>
             <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto drop-shadow-md animate-fade-in-delayed">
-              Leveraging technology to drive organizational growth through strategic IT management, data security, and innovative solutions.
+              Driving digital transformation through strategic IT management, application support excellence, data security compliance, and innovative web solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delayed">
               <button
