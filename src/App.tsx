@@ -1092,7 +1092,7 @@ export default function App() {
             />
           </div>
           <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>© {new Date().getFullYear()} Oluwatobi Daniel-Sodiya. All rights reserved.</p>
-          <p className={`mt-2 text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>IT Manager | Data Protection Officer | Lagos, Nigeria</p>
+          <p className={`mt-2 text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Digital Transformation Leader | IT Manager & Technology Strategist</p>
         </div>
       </footer>
 
