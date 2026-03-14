@@ -187,6 +187,21 @@ export default function App() {
 
   const experiences = [
     {
+      title: 'Technology Application Support Manager',
+      company: 'Alphamead Group',
+      location: 'Lagos, Nigeria',
+      period: 'December 2025 – Present',
+      achievements: [
+        'Oversaw full lifecycle management of business-critical applications, including deployment, configuration, patching, and version control, ensuring optimal performance and reliability',
+        'Managed seamless integration of applications with existing IT infrastructure and third-party systems, enhancing operational efficiency and user experience',
+        'Lead the design, implementation, and and mentor application support teams, establishing SLAs, escalation procedures, and incident management protocols to ensure timely resolution of issues and continuous improvement of support processes',
+        'Acted as primary liaison between IT and business units, translating business requirements into technical solutions and ensuring alignment of application support with organizational goals and objectives',       
+        'Implemented proactive monitoring and performance tuning strategies to optimize application performance, reduce downtime, and enhance user satisfaction',
+        'Driven continuous improvement initiatives for application support processes, leveraging industry best practices and emerging technologies to enhance service delivery and operational efficiency',
+        'Collaborated with cross-functional teams to plan and execute application upgrades, migrations, and new deployments, ensuring minimal disruption to business operations and seamless transition to new technologies'
+      ]
+    },
+    {
       title: 'IT Manager & Data Protection Officer',
       company: 'Brent Mortgage Bank Limited',
       location: 'Lagos, Nigeria',
