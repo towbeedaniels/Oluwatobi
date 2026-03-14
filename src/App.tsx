@@ -466,7 +466,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in">
           <div className="mb-8">
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-4 text-white drop-shadow-2xl animate-slide-down">
-              Oluwatobi Daniel-Sodiya
+              Oluwatobi Daniels
             </h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-100 mb-6 drop-shadow-md animate-slide-up">
               Digital Transformation Leader | IT Manager & Technology Strategist
