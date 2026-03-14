@@ -524,13 +524,13 @@ export default function App() {
             <div className="flex-1">
               <div className={`space-y-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'} text-lg leading-relaxed`}>
                 <p>
-                  Highly motivated and results-driven IT professional with over 5 years of experience in IT management, data analysis, and web development. Based in Lagos, Nigeria, I bring a proven track record of leading and implementing IT projects, optimizing infrastructure, and ensuring data security and compliance in the financial services sector.
+                  Highly motivated and results-driven IT professional with over 5 years of progressive experience spanning technology application support management, IT infrastructure leadership, data analysis, and web development. Based in Lagos, Nigeria, I have a proven track record of driving digital transformation in the financial services sector.
                 </p>
                 <p>
-                  My expertise spans IT infrastructure management, data protection, and cross-functional team collaboration. I excel at delivering innovative solutions that enhance business efficiency and customer satisfaction.
+                  As Technology Application Support Manager at Alphamead Group, I oversee business-critical applications and lead support teams. Previously as IT Manager & Data Protection Officer at Brent Mortgage Bank, I spearheaded mobile banking implementation with Interswitch, NIBBS, and NIP, achieving a 15% increase in customer transactions and optimizing infrastructure for 20% improved system performance.
                 </p>
                 <p>
-                  I possess strong analytical, problem-solving, and communication skills with a passion for leveraging technology to drive organizational growth.
+                  My expertise encompasses IT infrastructure management, data protection compliance, application lifecycle management, and cross-functional team collaboration. I possess strong analytical, problem-solving, and communication skills with a passion for leveraging technology to drive organizational growth and enhance customer satisfaction.
                 </p>
               </div>
             </div>
