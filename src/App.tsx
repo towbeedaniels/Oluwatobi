@@ -1,5 +1,35 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Code, Briefcase, User, Mail, Github, Linkedin, ChevronDown, Shield, Download, Award, TrendingUp, Users, CheckCircle, Send, Moon, Sun, ArrowUp, Printer, AlertCircle } from 'lucide-react';
+import { Menu, X, Code, Briefcase, User, Mail, Github, Linkedin, ChevronDown, Shield, Download, Award, TrendingUp, Users, CheckCircle, Send, Moon, Sun, ArrowUp, Printer, AlertCircle, ExternalLink } from 'lucide-react';
+
+// Project Content Component
+function ProjectContent({ project, darkMode }: { project: any; darkMode: boolean }) {
+  return (
+    <>
+      <div className="text-4xl md:text-5xl mb-4">{project.icon}</div>
+      <h3 className="text-xl md:text-2xl font-bold mb-3 text-red-600">{project.title}</h3>
+      <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-4 text-sm md:text-base`}>{project.description}</p>
+      <div className={`${darkMode ? 'bg-yellow-900/30 border-yellow-600' : 'bg-yellow-50 border-yellow-500'} border-l-4 p-3 mb-4`}>
+        <p className={`text-sm font-semibold ${darkMode ? 'text-yellow-400' : 'text-yellow-800'}`}>📈 {project.impact}</p>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {project.tags.map((tag: string, i: number) => (
+          <span
+            key={i}
+            className={`px-2 md:px-3 py-1 ${darkMode ? 'bg-blue-900/50 text-blue-300 border-blue-700' : 'bg-blue-50 text-blue-700 border-blue-200'} rounded-full text-xs md:text-sm border`}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+      {project.link && (
+        <div className="flex items-center gap-2 text-red-600 text-sm font-semibold mt-3">
+          <ExternalLink size={16} />
+          <span>Visit Website</span>
+        </div>
+      )}
+    </>
+  );
+}
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,7 +64,7 @@ export default function App() {
       }
 
       // Animate sections on scroll
-      const sections = ['about', 'experience', 'skills', 'projects', 'services', 'contact'];
+      const sections = ['about', 'experience', 'skills', 'projects', 'testimonials', 'services', 'contact'];
       sections.forEach((sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -64,7 +94,7 @@ export default function App() {
       
       setCounters({
         years: Math.floor(5 * progress),
-        projects: Math.floor(3 * progress),
+        projects: Math.floor(6 * progress),
         performance: Math.floor(20 * progress),
         satisfaction: Math.floor(100 * progress)
       });
@@ -194,7 +224,7 @@ export default function App() {
       achievements: [
         'Oversaw full lifecycle management of business-critical applications, including deployment, configuration, patching, and version control, ensuring optimal performance and reliability',
         'Managed seamless integration of applications with existing IT infrastructure and third-party systems, enhancing operational efficiency and user experience',
-        'Lead the design, implementation, and and mentor application support teams, establishing SLAs, escalation procedures, and incident management protocols to ensure timely resolution of issues and continuous improvement of support processes',
+        'Led the design, implementation, and mentoring of application support teams, establishing SLAs, escalation procedures, and incident management protocols to ensure timely resolution of issues and continuous improvement of support processes',
         'Acted as primary liaison between IT and business units, translating business requirements into technical solutions and ensuring alignment of application support with organizational goals and objectives',       
         'Implemented proactive monitoring and performance tuning strategies to optimize application performance, reduce downtime, and enhance user satisfaction',
         'Driven continuous improvement initiatives for application support processes, leveraging industry best practices and emerging technologies to enhance service delivery and operational efficiency',
@@ -207,7 +237,7 @@ export default function App() {
       location: 'Lagos, Nigeria',
       period: 'October 2021 – August 2025',
       achievements: [
-        'Spearheaded the implementation of a new mobile banking app with Interswitch, NIBBS, and NIP, achieving a 15% increase in customer transactions and 10% improvement in satisfaction ratings within the first year',
+        'Spearheaded the implementation of a new mobile banking app with Interswitch, NIBSS, and NIP, achieving a 15% increase in customer transactions and 10% improvement in satisfaction ratings within the first year',
         'Optimized IT infrastructure through server virtualization and network enhancements, resulting in 20% increase in system performance and 5% reduction in downtime over the course of two years',
         'Enhanced network security by configuring and maintaining servers, routers, and switches, minimizing security breaches and ensuring data confidentiality and integrity',
         'Developed and enforced IT policies in compliance with banking regulations, ensuring data protection and risk mitigation over the course of two years',
@@ -276,35 +306,162 @@ export default function App() {
       icon: '🛡️',
       impact: '100% compliance achieved',
       category: 'Security'
+    },
+    {
+      title: 'Twinkle Trading & Consult',
+      description: 'Professional business website for trading and consulting services with modern responsive design and contact functionality.',
+      tags: ['Web Development', 'React', 'Business Website', 'Responsive Design'],
+      icon: '💼',
+      impact: 'Live at twinkletradingconsult.com',
+      category: 'Web Development',
+      link: 'https://twinkletradingconsult.com/'
+    },
+    {
+      title: 'Ojala Logic',
+      description: 'Web application showcasing logical solutions and interactive features with clean, modern UI/UX design.',
+      tags: ['Web Development', 'JavaScript', 'UI/UX Design', 'Frontend'],
+      icon: '💡',
+      impact: 'Live at ojalogic.netlify.app',
+      category: 'Web Development',
+      link: 'https://ojalogic.netlify.app/'
+    },
+    {
+      title: 'Tech Visualizer',
+      description: 'Interactive technology visualization tool helping users understand complex technical concepts through visual representations.',
+      tags: ['Web Development', 'Data Visualization', 'Interactive Tools', 'Education'],
+      icon: '🔬',
+      impact: 'Live at tech-visualizer.netlify.app',
+      category: 'Web Development',
+      link: 'https://tech-visualizer.netlify.app/'
     }
   ];
 
-  const projectCategories = ['All', 'Management', 'Infrastructure', 'Security'];
+  const projectCategories = ['All', 'Management', 'Infrastructure', 'Security', 'Web Development'];
 
   const filteredProjects = activeFilter === 'All' 
     ? allProjects 
     : allProjects.filter(project => project.category === activeFilter);
 
-  const services = [
+  const serviceCategories = [
     {
-      title: 'IT Strategy & Consulting',
-      description: 'Strategic IT planning and infrastructure optimization to align technology with business goals.',
-      icon: '🎯'
+      name: 'Strategic Services',
+      icon: '🎯',
+      services: [
+        {
+          title: 'IT Strategy & Consulting',
+          description: 'Strategic IT planning and infrastructure optimization to align technology with business goals.',
+          icon: '📋'
+        },
+        {
+          title: 'Digital Transformation Consulting',
+          description: 'Alignment of IT initiatives with business goals to drive digital transformation and operational efficiency.',
+          icon: '🚀'
+        },
+        {
+          title: 'IT Policy Development',
+          description: 'Development of IT policies compliant with banking regulations and industry standards.',
+          icon: '📜'
+        },
+        {
+          title: 'Vendor Management',
+          description: 'IT vendor performance management for cost-effectiveness and high-quality service delivery.',
+          icon: '🤝'
+        }
+      ]
     },
     {
-      title: 'Data Protection & Compliance',
-      description: 'Comprehensive data security audits and compliance frameworks for regulatory adherence.',
-      icon: '🛡️'
+      name: 'Technical Services',
+      icon: '⚙️',
+      services: [
+        {
+          title: 'Infrastructure Management',
+          description: 'Network design, server virtualization, and IT infrastructure optimization services.',
+          icon: '🔧'
+        },
+        {
+          title: 'Cloud Migration Services',
+          description: 'Migration of critical applications to cloud platforms with improved scalability and cost reduction.',
+          icon: '☁️'
+        },
+        {
+          title: 'Mobile Banking Solutions',
+          description: 'Mobile banking app implementation with payment gateway integrations (Interswitch, NIBSS, NIP).',
+          icon: '📱'
+        },
+        {
+          title: 'Web Development',
+          description: 'Responsive frontend development using HTML, CSS, and JavaScript for optimal user experience.',
+          icon: '🌐'
+        },
+        {
+          title: 'API Integration Services',
+          description: 'Integration of applications with third-party systems and seamless data flow solutions.',
+          icon: '🔗'
+        },
+        {
+          title: 'IT Support & Helpdesk Setup',
+          description: 'Establishment of SLAs, escalation procedures, and incident management protocols for efficient support.',
+          icon: '🎧'
+        },
+        {
+          title: 'Performance Optimization',
+          description: 'Proactive monitoring and performance tuning to boost system performance and reduce downtime.',
+          icon: '⚡'
+        }
+      ]
     },
     {
-      title: 'Infrastructure Management',
-      description: 'Network design, server virtualization, and IT infrastructure optimization services.',
-      icon: '🔧'
+      name: 'Security & Compliance',
+      icon: '🔒',
+      services: [
+        {
+          title: 'Data Protection & Compliance',
+          description: 'Comprehensive data security audits and compliance frameworks for regulatory adherence.',
+          icon: '🛡️'
+        },
+        {
+          title: 'IT Security Audits',
+          description: 'Network security configuration, vulnerability assessments, and breach prevention strategies.',
+          icon: '🔐'
+        },
+        {
+          title: 'Business Continuity Planning',
+          description: 'Data protection, disaster recovery, and business continuity strategies to minimize downtime.',
+          icon: '🔄'
+        }
+      ]
     },
     {
-      title: 'Data Analysis & Visualization',
-      description: 'Business intelligence, data analytics, and interactive dashboard development.',
-      icon: '📊'
+      name: 'Data Services',
+      icon: '📊',
+      services: [
+        {
+          title: 'Data Analysis & Visualization',
+          description: 'Business intelligence, data analytics, and interactive dashboard development.',
+          icon: '📈'
+        },
+        {
+          title: 'Power BI Dashboard Development',
+          description: 'Custom interactive dashboards and data visualization solutions for actionable insights.',
+          icon: '📉'
+        },
+        {
+          title: 'SQL Database Services',
+          description: 'Data extraction, manipulation, modeling, and database optimization services.',
+          icon: '🗄️'
+        }
+      ]
+    },
+    {
+      name: 'Training & Enablement',
+      icon: '👨‍🏫',
+      services: [
+        {
+          title: 'Staff IT Training',
+          description: 'Technical training programs to improve IT literacy and reduce support tickets.',
+          icon: '👨‍🏫'
+        }
+      ]
     }
   ];
 
@@ -694,25 +851,21 @@ export default function App() {
             {filteredProjects.map((project, index) => (
               <div
                 key={index}
-                className={`${cardBgClass} rounded-lg overflow-hidden border ${borderClass} ${hoverBorderClass} hover:shadow-xl hover:shadow-red-500/20 transition-all duration-300 transform hover:scale-105`}
+                className={`${cardBgClass} rounded-lg overflow-hidden border ${borderClass} ${hoverBorderClass} hover:shadow-xl hover:shadow-red-500/20 transition-all duration-300 transform hover:scale-105 ${project.link ? 'cursor-pointer' : ''}`}
               >
-                <div className="p-4 md:p-6">
-                  <div className="text-4xl md:text-5xl mb-4">{project.icon}</div>
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-red-600">{project.title}</h3>
-                  <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-4 text-sm md:text-base`}>{project.description}</p>
-                  <div className={`${darkMode ? 'bg-yellow-900/30 border-yellow-600' : 'bg-yellow-50 border-yellow-500'} border-l-4 p-3 mb-4`}>
-                    <p className={`text-sm font-semibold ${darkMode ? 'text-yellow-400' : 'text-yellow-800'}`}>📈 {project.impact}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className={`px-2 md:px-3 py-1 ${darkMode ? 'bg-blue-900/50 text-blue-300 border-blue-700' : 'bg-blue-50 text-blue-700 border-blue-200'} rounded-full text-xs md:text-sm border`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                <div className={`p-4 md:p-6 ${project.link ? '' : ''}`}>
+                  {project.link ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <ProjectContent project={project} darkMode={darkMode} />
+                    </a>
+                  ) : (
+                    <ProjectContent project={project} darkMode={darkMode} />
+                  )}
                 </div>
               </div>
             ))}
@@ -721,7 +874,10 @@ export default function App() {
       </section>
 
       {/* Testimonials Section */}
-      <section className={`py-20 px-4 ${darkMode ? 'bg-gray-800/30' : 'bg-white/50'} transition-all duration-700 ${visibleSections.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <section
+        id="testimonials"
+        className={`py-20 px-4 ${darkMode ? 'bg-gray-800/30' : 'bg-white/50'} transition-all duration-700 ${visibleSections.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-center mb-12">
             <Users className="mr-3 text-red-600" size={32} />
@@ -748,8 +904,8 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section 
-        id="services" 
+      <section
+        id="services"
         className={`py-20 px-4 print-break transition-all duration-700 ${visibleSections.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
         <div className="max-w-6xl mx-auto">
@@ -757,18 +913,27 @@ export default function App() {
             <Briefcase className="mr-3 text-red-600" size={32} />
             <h2 className={`text-4xl font-bold ${textClass}`}>Services Offered</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`${cardBgClass} p-6 md:p-8 rounded-lg border ${borderClass} ${hoverBorderClass} hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
-              >
-                <div className="text-4xl md:text-5xl mb-4">{service.icon}</div>
-                <h3 className={`text-xl md:text-2xl font-bold ${textClass} mb-3`}>{service.title}</h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} text-sm md:text-base`}>{service.description}</p>
+          
+          {serviceCategories.map((category, categoryIndex) => (
+            <div key={categoryIndex} className="mb-12">
+              <div className="flex items-center mb-6">
+                <span className="text-3xl mr-3">{category.icon}</span>
+                <h3 className={`text-2xl font-bold ${textClass}`}>{category.name}</h3>
               </div>
-            ))}
-          </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {category.services.map((service, index) => (
+                  <div
+                    key={index}
+                    className={`${cardBgClass} p-6 md:p-8 rounded-lg border ${borderClass} ${hoverBorderClass} hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
+                  >
+                    <div className="text-4xl md:text-5xl mb-4">{service.icon}</div>
+                    <h3 className={`text-xl md:text-2xl font-bold ${textClass} mb-3`}>{service.title}</h3>
+                    <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} text-sm md:text-base`}>{service.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -926,7 +1091,7 @@ export default function App() {
               className="h-14 w-auto object-contain max-h-14"
             />
           </div>
-          <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>© 2025 Oluwatobi Daniel-Sodiya. All rights reserved.</p>
+          <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>© {new Date().getFullYear()} Oluwatobi Daniel-Sodiya. All rights reserved.</p>
           <p className={`mt-2 text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>IT Manager | Data Protection Officer | Lagos, Nigeria</p>
         </div>
       </footer>
