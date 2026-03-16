@@ -38,6 +38,7 @@ export default function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formStatus, setFormStatus] = useState('');
   const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
+  const [formErrorMessage, setFormErrorMessage] = useState<string>('');
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [activeFilter, setActiveFilter] = useState('All');
   const [isLoading, setIsLoading] = useState(true);
@@ -142,16 +143,17 @@ export default function App() {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setFormStatus('sending');
-    
+    setFormErrorMessage('');
+
     const form = e.currentTarget;
     const formDataToSubmit = new FormData(form);
-    
+
     try {
       const response = await fetch('/', {
         method: 'POST',
@@ -159,18 +161,70 @@ export default function App() {
         body: new URLSearchParams(formDataToSubmit as any).toString(),
       });
 
+      // Handle different HTTP status codes
       if (response.ok) {
         setFormStatus('success');
         setFormData({ name: '', email: '', message: '' });
         setFormErrors({});
-        setTimeout(() => setFormStatus(''), 3000);
+        setFormErrorMessage('');
+        setTimeout(() => setFormStatus(''), 5000);
       } else {
+        // Map status codes to user-friendly messages
+        let errorMessage = 'Something went wrong. Please try again or email me directly.';
+        
+        switch (response.status) {
+          case 400:
+            errorMessage = 'Invalid form data. Please check your information and try again.';
+            break;
+          case 403:
+            errorMessage = 'Access forbidden. Please try refreshing the page.';
+            break;
+          case 404:
+            errorMessage = 'Form endpoint not found. Please contact me via email.';
+            break;
+          case 429:
+            errorMessage = 'Too many attempts. Please wait a moment and try again.';
+            break;
+          case 500:
+            errorMessage = 'Server error. Please try again later or email me directly.';
+            break;
+          case 502:
+            errorMessage = 'Bad gateway. Please try again in a few moments.';
+            break;
+          case 503:
+            errorMessage = 'Service temporarily unavailable. Please try again later.';
+            break;
+          default:
+            if (response.status >= 500) {
+              errorMessage = 'Server error. Please try again later.';
+            } else if (response.status >= 400) {
+              errorMessage = 'Request failed. Please check your information and try again.';
+            }
+        }
+
+        console.error(`Form submission failed with status: ${response.status}`);
         setFormStatus('error');
-        setTimeout(() => setFormStatus(''), 3000);
+        setFormErrorMessage(errorMessage);
+        setTimeout(() => setFormStatus(''), 8000);
       }
     } catch (error) {
+      // Handle network errors and exceptions
+      let errorMessage = 'Network error. Please check your connection and try again.';
+      
+      if (error instanceof TypeError) {
+        if (error.message.includes('fetch')) {
+          errorMessage = 'Unable to connect to server. Please check your internet connection.';
+        } else if (error.message.includes('network')) {
+          errorMessage = 'Network error. Please check your connection.';
+        }
+      } else if (error instanceof Error) {
+        errorMessage = `Error: ${error.message}`;
+      }
+
+      console.error('Form submission error:', error);
       setFormStatus('error');
-      setTimeout(() => setFormStatus(''), 3000);
+      setFormErrorMessage(errorMessage);
+      setTimeout(() => setFormStatus(''), 8000);
     }
   };
 
@@ -1032,10 +1086,10 @@ export default function App() {
                   Message sent successfully! I'll get back to you soon.
                 </div>
               )}
-              {formStatus === 'error' && (
+              {formStatus === 'error' && formErrorMessage && (
                 <div className="bg-red-100 border border-red-500 text-red-800 px-4 py-3 rounded-lg text-center flex items-center justify-center gap-2">
                   <AlertCircle size={20} />
-                  Something went wrong. Please try again or email me directly.
+                  {formErrorMessage}
                 </div>
               )}
             </form>
