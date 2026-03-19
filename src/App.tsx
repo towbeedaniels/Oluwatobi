@@ -740,7 +740,7 @@ export default function App() {
             <div className="flex-shrink-0 w-full md:w-64">
               <img 
                 src="/images/profile/profile.jpeg" 
-                alt="Oluwatobi Daniel-Sodiya" 
+                alt="Oluwatobi Daniels" 
                 className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-red-600 shadow-xl mx-auto md:mx-0 hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -1145,7 +1145,7 @@ export default function App() {
               className="h-14 w-auto object-contain max-h-14"
             />
           </div>
-          <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>© {new Date().getFullYear()} Oluwatobi Daniel-Sodiya. All rights reserved.</p>
+          <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>© {new Date().getFullYear()} Oluwatobi Daniels. All rights reserved.</p>
           <p className={`mt-2 text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Digital Transformation Leader | IT Manager & Technology Strategist</p>
         </div>
       </footer>
